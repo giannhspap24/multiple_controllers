@@ -13,3 +13,6 @@ The resulting sets of MCLSs are stored into .txt files.
 
 Given the .txt files of MCLSs for each graph, execute the matlab scripts to perform experiments.
 In case of failure in either Phase 1 or 2, we provide some example files for reproducibility into the folder 'Example'
+
+Execute on MATLAB terminal: 'loac('example.mat')'.
+Then locate in MATLAB directory the .txt files of MCLSs.
