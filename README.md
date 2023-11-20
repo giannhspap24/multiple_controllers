@@ -2,7 +2,7 @@
 
 Create geographical random graphs(GRGs) and compute their compatibility matrices (graphs).
 Store the matrices into .txt files and pass them as input to the python code.
-
+Execute 'main_initiliazation.m'
 # Phase 2
 
 Given the .txt files from Phase 1, locate the files into the same directory of the .py file.
