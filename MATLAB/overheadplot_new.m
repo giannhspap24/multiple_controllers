@@ -2,10 +2,11 @@ totaloverheadlist=[];
 totaloverhead_ctrswlist=[];
 totaloverhead_ctrctrlist=[];
 
-G40=G_undirected;
-
+G40=setofG{1,1};
+[~,links,~] = createLinks(setofGtest{1,1});
 assignments = zeros(1, numnodes(G40));
 associations = zeros(1, numnodes(G40));
+
 for K=1:8 % K controllers
     
     centers = randperm(numnodes(G40), K);
@@ -50,7 +51,6 @@ for K=1:8 % K controllers
         %insert the longest node in all of the clusters
         centers = new_centers;
     end
-    %associations=assignments;
     controllersnaive=centers;
     associationsnaive=associations;
    
@@ -59,25 +59,20 @@ for K=1:8 % K controllers
 
     totaloverheadlist(end+1)=totaloverhead;
     totaloverhead_ctrswlist(end+1)=totaloverhead_ctrsw;
-    %totaloverhead_ctrctrlist(end+1)=totaloverhead-totaloverhead_ctrsw;
     totaloverhead_ctrctrlist(end+1)=totaloverhead_ctrctr;
     
  
     disp(K)
 end
 figure;
-x=1:8;
-% Plot all vectors in the same plot with different colors
+x=1:8; %Until number of number controllers
+% Plot all control overhead vectors in the same plot with different colors
 plot(x, totaloverheadlist, '-o', 'DisplayName', 'Total','LineWidth',2);
 hold on;
 plot(x, totaloverhead_ctrswlist, '-x', 'DisplayName', 'CtSw','LineWidth',2);
 plot(x, totaloverhead_ctrctrlist, '-s', 'DisplayName', 'CtC','LineWidth',2);
 
-% Add legend
 legend('Total overhead','CtSw','CtC','Location','northwest')
-%xlim([1, 12]);
-% Customize the plot appearance
-%title('Onos');
 xlabel('Number of controllers');
 ylabel('Overhead(Kbps)');
 %grid on;  % Add grid lines
